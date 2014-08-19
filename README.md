@@ -12,11 +12,11 @@ To do
 build the HTML, CSS and JavaScript if required.
 
 - Guide: Create the template for the quiz with one question and one answer.
-- Task: Create multiple answers.
-- Task: Store the correct answer to the question.
-- Guide: On users answer to a question, check against the real answer and reflect back to user. 
+- Task: Create answers.
+- Task: Create another question with multiple answers 
+- Task: Get users answer and check if it is correct. Show success / failure.
+
 - Guide: Document / code the steps to navigate to the next question.
-- Task: Create another question with multiple answers and navigate from q1 to q2.
 - Task: Create a button to navigate to previous question e.g. q2 - q1
 - Task: Ensure each question can be answered and reflect the real answer to the user. 
 - Guide: Using local storage to store answers for users.
