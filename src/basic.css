@@ -1,0 +1,11 @@
+body {
+    font-family: Helvetica;
+    margin-left: 1em;
+}
+label {
+    display: block;
+    padding-left: 1em;
+}
+.pull-right {
+    float: right;
+}
