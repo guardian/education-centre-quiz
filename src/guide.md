@@ -19,7 +19,18 @@ We can use a programming language to build the quiz and make it east to update. 
 Open quiz.js, here is a question function. In it there is a function to add a question. 
 **TODO** Document how setQuestion works
 
-We've created a function called setAnswers which takes two answers, can you complete it?
+We've created a function called setAnswers which takes three answers, can you complete it?
+
+Now we want the user to submit an answer and tell them if they are correct. 
+
+We have groups the radio buttons by one common name (in this case q1Choices) and each has a different value (in this case answer1, answer2 and answer3). 
+
+In quiz.js the checkAnswer function finds all occurences of input type q1Choices and gets value of the one that is checked (set to true), this has been set to a variable called selectedAnswer. 
+
+On setting up the quiz we can define which value is correct, a variable called q1answer has been define, can you set the correct value for it.
+
+Can you write a condition to check selectedAnswer against q1answer.
+
 
 
 Now create a second question with two answers.
