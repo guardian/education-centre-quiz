@@ -10,12 +10,12 @@ function Question (id) {
 	};
 }
 
-var answers = [];
+var q1answer = ""; // this can later be changed to an array for multiple questions
+
 function checkAnswer() {
     var selectedAnswer = document.querySelector('input[name="q1Choices"]:checked').value;
-    if(selectedAnswer == answers[0]) alert("Correct answer");
-    else alert("Incorrect answer");                                      
-    
+  //TODO write a condition to check selectedAnswer against q1answer and 
+  //display to the user if they are correct or not.
 }
 window.onload = function() {
 
@@ -24,7 +24,6 @@ window.onload = function() {
     q1.setQuestion('When was the Guardian first published?');
 
     q1.setAnswers('1791', '1821', '1999');
-    
-    this.answers.push('answer2');
+    this.q1answer = //TODO ;
 
 }
