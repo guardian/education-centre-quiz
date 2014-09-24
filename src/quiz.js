@@ -1,29 +1,41 @@
-function Question (id) {
-	// body...
-	var question = document.getElementById(id)
-	this.setQuestion = function (questionText) {
+var form = document.getElementById('quiz');
+
+function Question () {
+    var question = document.getElementById('template').cloneNode(true);
+    form.appendChild(question);
+    
+    this.setQuestion = function (questionText) {
 		question.querySelector('.question').innerHTML = questionText;
 	};
 
 	this.setAnswers = function (answer1, answer2, answer3) {
-		//TODO
+        question.querySelector('.answer1').innerHTML = answer1;
+        question.querySelector('.answer2').innerHTML = answer2;
+        question.querySelector('.answer3').innerHTML = answer3;
 	};
+    
+    this.checkAnswer = function (value) {
+        var selectedAnswer = question.querySelector(':checked').value;
+        return selectedAnswer === value;
+    };
 }
 
-var q1answer = ""; // this can later be changed to an array for multiple questions
+form.addEventListener('submit', function (evt) {
+    evt.preventDefault();
 
-function checkAnswer() {
-    var selectedAnswer = document.querySelector('input[name="q1Choices"]:checked').value;
-  //TODO write a condition to check selectedAnswer against q1answer and 
-  //display to the user if they are correct or not.
-}
-window.onload = function() {
+    var result = form.querySelector('.result');
+    if (q1.checkAnswer("answer2")) {
+        result.innerHTML = "Hooray";
+    } else {
+        result.innerHTML = "Boo";
+    }
+    
+});
 
-    var q1 = new Question("question1");
 
-    q1.setQuestion('When was the Guardian first published?');
+var q1 = new Question();
 
-    q1.setAnswers('1791', '1821', '1999');
-    this.q1answer = //TODO ;
+q1.setQuestion('When was the Guardian first published?');
 
-}
+q1.setAnswers('1791', '1821', '1999');
+

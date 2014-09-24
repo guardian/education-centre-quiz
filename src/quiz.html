@@ -1,16 +1,20 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<script type="text/javascript" src="quiz.js"></script>
 	</head>
 	<body>
-        <form>
-		  <div id="question1">
-			<p class="question"></p>
-			<p><input type="radio" name="q1Choices" value="answer1"> <span class="answer1"></span></p>
-			<p><input type="radio" name="q1Choices" value="answer2"> <span class="answer2"></span></p>
-			<p><input type="radio" name="q1Choices" value="answer3"> <span class="answer3"></span></p>
-            <button onclick="checkAnswer();"> Check answer </input>
-		  </div>
+        <form id="quiz">
+            <div style="display: none">
+              <div id="template">
+                <p class="question"></p>
+                <label><input type="radio" name="q1Choices" value="answer1"> <span class="answer1"></span></label>
+                <label><input type="radio" name="q1Choices" value="answer2"> <span class="answer2"></span></label>
+                <label><input type="radio" name="q1Choices" value="answer3"> <span class="answer3"></span></label>
+                <button> Check answer </button>
+              </div>
+            </div>
+          <div class="result"></div>    
         </form>
+        <script src="quiz.js"></script>
 	</body>
 </html>
