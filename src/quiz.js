@@ -5,17 +5,19 @@ function Question () {
     form.appendChild(question);
     
     this.setQuestion = function (questionText) {
-		question.querySelector('.question').innerHTML = questionText;
+		question.querySelector('.question').textContent = questionText;
 	};
 
 	this.setAnswers = function (answer1, answer2, answer3) {
-        question.querySelector('.answer1').innerHTML = answer1;
-        question.querySelector('.answer2').innerHTML = answer2;
-        question.querySelector('.answer3').innerHTML = answer3;
+        //Student todo
+        question.querySelector('.answer1').textContent = answer1;
+        question.querySelector('.answer2').textContent = answer2;
+        question.querySelector('.answer3').textContent = answer3;
 	};
     
     this.checkAnswer = function (value) {
         var selectedAnswer = question.querySelector(':checked').value;
+        //Student todo
         return selectedAnswer === value;
     };
 }
@@ -23,11 +25,12 @@ function Question () {
 form.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
+    //Student todo
     var result = form.querySelector('.result');
     if (q1.checkAnswer("answer2")) {
-        result.innerHTML = "Hooray";
+        result.textContent = "Hooray";
     } else {
-        result.innerHTML = "Boo";
+        result.textContent = "Boo";
     }
     
 });
