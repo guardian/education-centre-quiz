@@ -1,5 +1,5 @@
 
-Goal of the session create a quiz with multiple questions and answers. Take user choices and present back how many answers they have got correct.
+Goal of the session is to create a quiz with multiple questions and answers. The quiz will take user choices and reflect back how many answers are correct.
 
 HTML
 -----
@@ -9,6 +9,7 @@ Understand basic HTML and layout.
 - Template (index.html) will contain basic form with a question and one answer.
 - Student will be asked to add more answers 
 - Change tags to see how this changes on the page.
+
 
 Javascript & HTML
 ------------------
@@ -24,7 +25,7 @@ Understand how to create quiz containing multiple questions and answers. Present
 Insert multiple choice answers
 -------------------------------
 - Student will be asked to insert three choices for the first question. Hint will be to follow similar pattern to inserting a question.  We expect the student to create a method with three answer parameters and copy how to create and insert the node as per question. (Note they may choose to do this by using an array as parameter.)
-- Present to the student how refactor the answer method to make the code reusable.
+- Present to the student how to refactor the answer method to make the code reusable.
 - Student will be asked how can the setAnswer function be taken any number of multiple choice questions. We expect (or need to hint) about arrays. Should we explain arrays?
 
 
