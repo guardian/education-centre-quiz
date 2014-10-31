@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <title>Let's make a quiz</title>
         <link rel="stylesheet" href="basic.css">
-	</head>
-	<body>
+    </head>
+    <body>
         <form id="quiz">
-            <div style="display: none">
-              <div id="template">
+            <div id="questions"></div>
+            <div id="result"></div>
+        </form>
+
+        <div style="display: none">
+            <div id="question-template">
                 <p class="question"></p>
                 <label><input type="radio" name="q1Choices" value="answer1"> <span class="answer1"></span></label>
                 <label><input type="radio" name="q1Choices" value="answer2"> <span class="answer2"></span></label>
                 <label><input type="radio" name="q1Choices" value="answer3"> <span class="answer3"></span></label>
-                <button> Check answer </button>
-              </div>
+                <button>Check answer</button>
             </div>
-          <div class="result"></div>    
-        </form>
+        </div>
         <script src="quiz.js"></script>
-	</body>
+    </body>
 </html>
