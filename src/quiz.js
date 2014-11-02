@@ -14,7 +14,16 @@ function Question() {
 
     function createAnswer(answer) {
         var container = copyTemplate('#answer-template', answers);
-        container.querySelector('.answer').textContent = answer;
+        var answerToDisplay = container.querySelector('.answer')
+        
+        //todo explain below lines in guide
+        answerToDisplay.textContent = answer;
+        var radioInput = container.getElementsByTagName("input")[0];
+        radioInput.setAttribute("type", "radio");
+        radioInput.setAttribute("name", "q1Choices");
+        radioInput.setAttribute("value", answer);
+   
+      
     }
 
     this.setQuestion = function (questionText) {
@@ -25,6 +34,11 @@ function Question() {
         for (var i = 0; i < answerList.length; i++) {
             createAnswer(answerList[i]);
         }
+    };
+    
+    this.checkAnswer = function (value) {
+        var selectedAnswer = question.querySelector(':checked').value;
+        return selectedAnswer === value;
     };
 
 //    this.setAnswers = function (answer1, answer2, answer3) {
@@ -39,6 +53,18 @@ function Question() {
 //        createAnswer(answer3);
 //    };
 }
+
+quiz.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+
+    var result = quiz.querySelector('#result');
+    if (q1.checkAnswer("1821")) {
+        result.innerHTML = "Hooray";
+    } else {
+        result.innerHTML = "Boo";
+    }
+    
+});
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
