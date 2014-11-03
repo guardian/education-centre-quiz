@@ -3,9 +3,48 @@ body {
     margin-left: 1em;
 }
 label {
-    display: block;
     padding-left: 1em;
 }
 .pull-right {
     float: right;
+}
+.answers {
+    margin-bottom: 10px;
+}
+
+button {
+    border-color: #005689;
+    border-radius: 100px;
+    background-color: #005689;
+    color: white;
+    padding: 5px 10px;
+    border-width: 0;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+#questions {
+    counter-reset: list;
+}
+
+#questions > div {
+    margin-bottom: 30px;
+}
+
+#questions > div::before {
+    display: inline-block;
+    padding-right: 10px;
+    content: counter(list);
+    counter-increment: list;
+    float: left;
+    font-size: 80px;
+    color: #dcdcdc;
+}
+
+.guardian {
+    float: right;
+    width: 100px;
+    border-radius: 100px;
 }
