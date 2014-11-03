@@ -4,6 +4,7 @@ var result = quiz.querySelector('#result');
 
 function copyTemplate(id, to) {
     var element = document.querySelector(id).cloneNode(true);
+    element.id = '';
     to.appendChild(element);
     return element;
 }
@@ -18,10 +19,9 @@ function Question() {
         
         //todo explain below lines in guide
         answerToDisplay.textContent = answer;
-        var radioInput = container.getElementsByTagName("input")[0];
-        radioInput.setAttribute("type", "radio");
-        radioInput.setAttribute("name", "q1Choices");
-        radioInput.setAttribute("value", answer);
+        var radioInput = container.querySelector('.choice');
+        radioInput.setAttribute('name', 'q1Choices');
+        radioInput.setAttribute('value', answer);
    
       
     }
@@ -69,3 +69,7 @@ quiz.addEventListener('submit', function (evt) {
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
 q1.setAnswers(['1791', '1821', '1999']);
+
+var q2 = new Question();
+q2.setQuestion('Where are the Guardian offices?');
+q2.setAnswers(['London', 'New York', 'Sydney', 'All of the above']);
