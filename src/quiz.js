@@ -12,15 +12,16 @@ function copyTemplate(id, to) {
 function Question() {
     var question = copyTemplate('#question-template', questions);
     var answers = question.querySelector('.answers');
+    var correctAnswer;
 
-    function createAnswer(answer) {
+    function createAnswer(answer, name) {
         var container = copyTemplate('#answer-template', answers);
         var answerToDisplay = container.querySelector('.answer')
         
         //todo explain below lines in guide
         answerToDisplay.textContent = answer;
         var radioInput = container.querySelector('.choice');
-        radioInput.setAttribute('name', 'q1Choices');
+        radioInput.setAttribute('name', name);
         radioInput.setAttribute('value', answer);
    
       
@@ -30,15 +31,19 @@ function Question() {
         question.querySelector('.question').textContent = questionText;
     };
 
-    this.setAnswers = function (answerList) {
+    this.setAnswers = function (answerList, name) {
         for (var i = 0; i < answerList.length; i++) {
-            createAnswer(answerList[i]);
+            createAnswer(answerList[i], name);
         }
     };
     
-    this.checkAnswer = function (value) {
+    this.setCorrectAnswer = function (answer) {
+        correctAnswer = answer;
+    };
+    
+    this.checkAnswer = function () {
         var selectedAnswer = question.querySelector(':checked').value;
-        return selectedAnswer === value;
+        return selectedAnswer === correctAnswer;
     };
 
 //    this.setAnswers = function (answer1, answer2, answer3) {
@@ -58,7 +63,7 @@ quiz.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
     var result = quiz.querySelector('#result');
-    if (q1.checkAnswer("1821")) {
+    if (q1.checkAnswer() && q2.checkAnswer()) {
         result.innerHTML = "Hooray";
     } else {
         result.innerHTML = "Boo";
@@ -68,8 +73,10 @@ quiz.addEventListener('submit', function (evt) {
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
-q1.setAnswers(['1791', '1821', '1999']);
+q1.setAnswers(['1791', '1821', '1999'], 'q1-choices');
+q1.setCorrectAnswer('1821');
 
 var q2 = new Question();
 q2.setQuestion('Where are the Guardian offices?');
-q2.setAnswers(['London', 'New York', 'Sydney', 'All of the above']);
+q2.setAnswers(['London', 'New York', 'Sydney', 'All of the above'], 'q2-choices');
+q2.setCorrectAnswer('All of the above');

@@ -31,6 +31,7 @@ h2 {
 
 #questions > div {
     margin-bottom: 30px;
+    clear: left;
 }
 
 #questions > div::before {
