@@ -61,13 +61,16 @@ function Question() {
 
 quiz.addEventListener('submit', function (evt) {
     evt.preventDefault();
-
+    var counter = 0
     var result = quiz.querySelector('#result');
-    if (q1.checkAnswer() && q2.checkAnswer()) {
-        result.innerHTML = "Hooray";
-    } else {
-        result.innerHTML = "Boo";
+    if (q1.checkAnswer()) {
+        counter++
+    } 
+    if (q2.checkAnswer()) { 
+        counter++
     }
+    result.innerHTML = "You got " + counter + " out of 2 correct";
+
     
 });
 
