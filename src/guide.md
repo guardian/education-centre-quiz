@@ -1,61 +1,52 @@
 
-Basic HTML
----------
-Open index.html - here you can see a question and an answer. 
+Goal of the session is to create a quiz with multiple questions and answers. The quiz will take user choices and reflect back how many answers are correct.
 
-This a multiple choice question, can you add more choices.
-
-**TODO** Some text about changing the view e.g. swapping p tag for h2 to show how it differs on the page
-
-Now add more questions (time limit this)
-
-As you can this starts to take time and becomes can't be easily changed. 
-
-Introduction to dynamic content using JavaScript
--------
-
-We can use a programming language to build the quiz and make it east to update. We are going to use JavaScript. 
-
-Open quiz.js, here is a question function. In it there is a function to add a question. 
-**TODO** Document how setQuestion works
-
-We've created a function called setAnswers which takes three answers, can you complete it?
-
-Now we want the user to submit an answer and tell them if they are correct. 
-
-We have groups the radio buttons by one common name (in this case q1Choices) and each has a different value (in this case answer1, answer2 and answer3). 
-
-In quiz.js the checkAnswer function finds all occurences of input type q1Choices and gets value of the one that is checked (set to true), this has been set to a variable called selectedAnswer. 
-
-On setting up the quiz we can define which value is correct, a variable called q1answer has been define, can you set the correct value for it.
-
-Can you write a condition to check selectedAnswer against q1answer.
+HTML
+-----
+-----
+Aim:
+Understand basic HTML and layout.
+- Template (index.html) will contain basic form with a question and one answer.
+- Student will be asked to add more answers 
+- Change tags to see how this changes on the page.
 
 
+Javascript & HTML
+------------------
+------------------
 
-Now create a second question with two answers.
+Aim:
+Understand how to create quiz containing multiple questions and answers. Present back to the user how many correct answers they have.
 
-This is still quite repetitive. We can use arrays to add a list of questions to the page.
+- Template - quiz.html and quiz.js
+- quiz.html to have the starting template for creating a question and element for inserting an answer.
+- quiz.js to contain the code to insert a question.
 
-**TODO** explain arrays
-
-```
-var animals = ['cat', 'zebra', 'frog', 'dog'];
-
-for (i = 0; i < 4; i++) {
-	console.log(animals[i])
-}
-```
-
-**TODO** explain console.log - and where to run this code.
-Try adding or removing words from the lists array. Can you see why this isn't doing what you expected?
-Hint: Using a resource link below can you find out how to get the size of the array and loop over it.
-
-How would you build a version of setAnswers that takes an array of answers.
-The function setAnswer(answer1, answer2) should change to setAnswer(answers) where answers is the array.
-
-**TODO** explain appendChild and where to add it
-
-Submitting answers and telling the user if they are correct
+Insert multiple choice answers
+-------------------------------
+- Student will be asked to insert three choices for the first question. Hint will be to follow similar pattern to inserting a question.  We expect the student to create a method with three answer parameters and copy how to create and insert the node as per question. (Note they may choose to do this by using an array as parameter.)
+- Present to the student how to refactor the answer method to make the code reusable.
+- Student will be asked how can the setAnswer function be taken any number of multiple choice questions. We expect (or need to hint) about arrays. Should we explain arrays?
 
 
+Submit an answer to a question and tell user if they are correct
+-----------------------------------------------------------------
+- The guide will present how to find which of the mutiple choices has been checked by the user ( var selectedAnswer = question.querySelector(':checked').value)
+- Student will be asked to create function that will check the real answer against the one submitted.
+- Student will also need to implement how to reflect back to the user if they are correct or not.
+
+
+Extra tasks depending on how far students get. 
+
+
+Add multiple questions
+----------------------
+- Using the concept of arrays student can add multiple questions.
+- Have a submit button per question to reflect back to the user?
+
+
+Reflect back to the user how many answers are correct
+------------------------------------------------------
+
+- Student to implement a method to iterate over the answers to questions to calculate how many the user has answered correctly.
+- Introduce concept of iteration and accumulating answers?
