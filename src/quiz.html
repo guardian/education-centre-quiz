@@ -1,13 +1,26 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<script type="text/javascript" src="quiz.js"></script>
-	</head>
-	<body>
-		<div id="template">
-			<p class="question"></p>
-			<p><input type="radio" name="answers" value="answer1"> <span class="answer1"></span></p>
-			<p><input type="radio" name="answers" value="answer2"> <span class="answer2"></span></p>
+    <head>
+        <title>Let's make a quiz</title>
+        <link rel="stylesheet" href="basic.css">
+    </head>
+    <body>
+        <img class="guardian" src="g.png" />
+        <form id="quiz">
+            <div id="questions"></div>
+            <button>Check answer</button>
+            <div id="result"></div>
+        </form>
 
-		</div>		
-	</body>
+        <div style="display: none">
+            <div id="question-template">
+                <h2 class="question"></h2>
+                <div class="answers"></div>
+            </div>
+            <label id="answer-template">
+                <input type="radio" class="choice"> <span class="answer"></span>
+            </label>
+        </div>
+        <script src="quiz.js"></script>
+    </body>
 </html>

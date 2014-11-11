@@ -50,5 +50,3 @@ Reflect back to the user how many answers are correct
 
 - Student to implement a method to iterate over the answers to questions to calculate how many the user has answered correctly.
 - Introduce concept of iteration and accumulating answers?
-
-
