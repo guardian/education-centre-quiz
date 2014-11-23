@@ -12,7 +12,13 @@
             <div id="result"></div>
         </form>
 
-        <div style="display: none">
+        <!--
+            This is a comment, it will not be shown to the user. 
+
+            The block of code below is a reusable chunk which creates a question and 
+            a set of answers. Each question will be added to the form 
+         -->
+        <div id="template" style="display: none">
             <div id="question-template">
                 <h2 class="question"></h2>
                 <div class="answers"></div>
@@ -21,6 +27,8 @@
                 <input type="radio" class="choice"> <span class="answer"></span>
             </label>
         </div>
+
+
         <script src="quiz.js"></script>
     </body>
 </html>
