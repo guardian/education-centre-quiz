@@ -18,10 +18,11 @@ function Question() {
         question.querySelector('.question').textContent = questionText;
     };    
   
-     this.setAnswers = function (answer1, answer2, answer3) {
-     }
+    this.setAnswers = function (answer1, answer2, answer3) {
+    
+    };
 
-     this.setCorrectAnswer = function () {
+    this.setCorrectAnswer = function () {
         
     };
     
