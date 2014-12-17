@@ -24,6 +24,10 @@ function Question() {
      this.setCorrectAnswer = function () {
         
     };
+    
+    this.checkAnswer = function () {
+        
+    };
 }
 
 quiz.addEventListener('submit', function (evt) {
@@ -31,8 +35,6 @@ quiz.addEventListener('submit', function (evt) {
     var result = quiz.querySelector('#result');
     
     result.innerHTML = "You got 2 out of 2 correct";
-
-    
 });
 
 
