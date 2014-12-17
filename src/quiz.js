@@ -26,6 +26,15 @@ function Question() {
     };
 }
 
+quiz.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    var result = quiz.querySelector('#result');
+    
+    result.innerHTML = "You got 2 out of 2 correct";
+
+    
+});
+
 
 
 var q1 = new Question();
