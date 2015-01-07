@@ -11,25 +11,17 @@ function Question() {
     };    
   
     this.setAnswers = function (answer1, answer2, answer3) {
-       var answerElement = createAnswerContainer();
+       var answerElement1 = createAnswerContainer();
         setText(answerElement, answer1);
-        setRadioButton(answerElement, 'blah', answer1);
+        setRadioButton(answerElement1, 'q1Choices', answer1);
     };
 
-    this.setCorrectAnswer = function () {
-
-    };
-    
-    this.checkAnswer = function () {
-        
-    };
 
     ////////////This code is helper functions
     var questionContainer = copyTemplate('#question-template', questions);
     var answersContainer = questionContainer.querySelector('.answers');
 
     function  getQuestionContainer() {
-        console.log(questionContainer, questionContainer.querySelector('.question'));
         return questionContainer.querySelector('.question');
     }
 
@@ -47,12 +39,23 @@ function Question() {
         radioButtonElement.setAttribute('value', value);
     }
 
+
     function copyTemplate(id, to) {
         var element = document.querySelector(id).cloneNode(true);
         element.id = '';
         to.appendChild(element);
         return element;
     }
+
+    this.setCorrectAnswer = function (answer) {
+        correctAnswer = answer;
+    };
+    
+    this.checkAnswer = function () {
+        var selectedAnswer = questionContainer.querySelector(':checked').value;
+        return selectedAnswer === correctAnswer;
+    };
+    //// end of helper functions
 }
 
 quiz.addEventListener('submit', function (evt) {
@@ -66,6 +69,7 @@ quiz.addEventListener('submit', function (evt) {
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
+//make variable list first then pass in
 q1.setAnswers('1791', '1821', '1999');
 q1.setCorrectAnswer('1821');
 
