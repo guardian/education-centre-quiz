@@ -12,7 +12,7 @@ function Question() {
   
     this.setAnswers = function (answer1, answer2, answer3) {
        var answerElement1 = createAnswerContainer();
-        setText(answerElement, answer1);
+        setText(answerElement1, answer1);
         setRadioButton(answerElement1, 'q1Choices', answer1);
     };
 
@@ -53,7 +53,7 @@ function Question() {
     
     this.checkAnswer = function () {
         var selectedAnswer = questionContainer.querySelector(':checked').value;
-        return selectedAnswer === correctAnswer;
+        
     };
     //// end of helper functions
 }
