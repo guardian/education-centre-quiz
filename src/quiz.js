@@ -17,7 +17,7 @@ function Question() {
         setRadioButton(answerElement1, 'q1Choices', answer1);
 
         var answerElement2 = createAnswerContainer();
-        setText(answerElement, answer2);
+        setText(answerElement2, answer2);
         setRadioButton(answerElement2, 'q1Choices', answer2);
 
         var answerElement3 = createAnswerContainer();
