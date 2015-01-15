@@ -16,6 +16,11 @@ function Question() {
         setRadioButton(answerElement1, 'q1Choices', answerList[0]);
     };
 
+    this.checkAnswer = function () {
+        var userAnswer = getUserAnswer();
+        var correctAnswer = getCorrectAnswer();
+    };
+
 
     ////////////This code is helper functions
     var questionContainer = copyTemplate('#question-template', questions);
@@ -50,12 +55,14 @@ function Question() {
     this.setCorrectAnswer = function (answer) {
         correctAnswer = answer;
     };
-    
-    this.checkAnswer = function () {
-        var selectedAnswer = questionContainer.querySelector(':checked').value;
-        return selectedAnswer === correctAnswer;
-        
-    };
+
+    this.getCorrectAnswer = function() {
+        return correctAnswer;
+    }
+
+    this.getUserAnswer = function () {
+        return questionContainer.querySelector(':checked').value;
+    }
     //// end of helper functions
 }
 
