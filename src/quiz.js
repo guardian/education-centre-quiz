@@ -10,10 +10,10 @@ function Question() {
         setText(questionElement, questionText);
     };    
   
-    this.setAnswers = function (answer1, answer2, answer3) {
+    this.setAnswers = function (answerList) {
        var answerElement1 = createAnswerContainer();
-        setText(answerElement1, answer1);
-        setRadioButton(answerElement1, 'q1Choices', answer1);
+        setText(answerElement1, answerList[0]);
+        setRadioButton(answerElement1, 'q1Choices', answerList[0]);
     };
 
 
@@ -69,7 +69,7 @@ quiz.addEventListener('submit', function (evt) {
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
-//make variable list first then pass in
-q1.setAnswers('1791', '1821', '1999');
+var choices = ['1791', '1821', '1999']
+q1.setAnswers(choices);
 q1.setCorrectAnswer('1821');
 
