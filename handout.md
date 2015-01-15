@@ -36,51 +36,45 @@ var - means variable. It is a name we want to associate a value to. So for examp
 var fruit = "apples" (fruit is the variable name for the word apples)
 var status = true (stats is the variable name for a true value)
 
-function - this means the code inside the function will do something. Anything that calls this function doesn’t have to worry about how it’s done but just function will take care of it. There are a number of functions already provided in quiz.js. We need you to write the other functions to populate the quiz, let the user submit an answer and return how many they got correct.
-
-In quiz.js the first question text and first radio button been created. Can you create the second and third radio buttons. 
-
-
-At the bottom of quiz.js you can see that setAnswers has been called with three possible answers
-q1.setAnswers('1791', '1821', '1999');
-
-
-this.setAnswers = function (answer1, answer2, answer3) {
-       var answerElement1 = createAnswerContainer();
-        setText(answerElement1, answer1);
-        setRadioButton(answerElement1, 'q1Choices', answer1);
-    };
-
-The code to create the first button is in setAnswers, it can be adapted to add the second and third choices. 
-
-setText(answerElement1, answer1); is a function that can take a new element and an answer text.
-setRadioButton(answerElement1, 'q1Choices', answer1); is another function that takes the new element and creates a radio button. 'q1Choices is the name of the radio button and it's value is set to answer1.
-
-
-Once you have made your changes, save quiz.js and open quiz.html. If you can't the new radio buttons then try looking in the Developer Console which should help identify where you may have gone wrong. To do this, right click in the browser, select Inspect Element, go the Console tab. If there is a red icon click it, it will help identify the line causing the issue.
-
-Once you have the radio buttons, try adding another question at the bottom of the file.
-
-Do you see a problem with the new question? The radio buttons choices for question one and two are grouped together, we can't answer both questions at the same time! We need to separate the radio buttons for question 1 and question 2. We need to give  setRadioButton(answerElement1, 'q1Choices', answer1); for question 1 radio buttons but setRadioButton(answerElement1, 'q2Choices', answer1) radio buttons.
-
-Functions can take parameters, we're currently passing in three to this.setAnswers. Can you make it pass in four, the fourth can be the variable name which set radio button name too. Hint you will have to update the code calling setAnswers too.
-
-this.setAnswers is quite long and it only allows us to have 3 choices per question. What if we wanted four choices for question 2 or 8 choices for question 8? 
-
-We can use a list - this is also known as an array. An example of a list of fruit:
+lists - this is also known as an array. An example of a list of fruit:
 var fruits = ['apples', 'bananas', 'cranberry']
 Each fruit can be fetched individually. This can be done by fruits[i] where i is a number. The number represents the position of where the fruit is in the list, we start at zero. So for example 
 fruits[0] //apples
 fruits[1] //bananas
 fruits[2] // cranberry
 
-Can you create a variable for each possible choices and pass it this.setAnswers. Hint
-this.setAnswers = function (answer1, answer2, answer3) {...}
+function - this means the code inside the function will do something. Anything that calls this function doesn’t have to worry about how it’s done but just function will take care of it. There are a number of functions already provided in quiz.js. We need you to write the other functions to populate the quiz, let the user submit an answer and return how many they got correct.
 
-can change to take just one parameter which is the list
-this.setAnswers = function (answerList) {...}
 
-Now that we have a list we can use a for loop over it to create the radio button.
+In quiz.js the first question text and first radio button been created. Can you create the second and third radio buttons. 
+
+At the bottom of quiz.js you can see that setAnswers has been called with three possible answers
+var choices = ['1791', '1821', '1999']
+q1.setAnswers(choices);
+
+
+ this.setAnswers = function (answerList) {
+       var answerElement1 = createAnswerContainer();
+        setText(answerElement1, answerList[0]);
+        setRadioButton(answerElement1, 'q1Choices', answerList[0]);
+    };
+
+The code to create the first button is in setAnswers, it can be adapted to add the second and third choices. 
+
+setText(answerElement1, answerList[0]); is a function that can take a new element and an answer text.
+setRadioButton(answerElement1, 'q1Choices', answerList[0]); is another function that takes the new element and creates a radio button. 'q1Choices is the name of the radio button and it's value is set to answer1.
+
+
+Once you have made your changes, save quiz.js and open quiz.html. If you can't the new radio buttons then try looking in the Developer Console which should help identify where you may have gone wrong. To do this, right click in the browser, select Inspect Element, go the Console tab. If there is a red icon click it, it will help identify the line causing the issue.
+
+Once you have the radio buttons, try adding another question at the bottom of the file.
+
+Do you see a problem with the new question? The radio buttons choices for question one and two are grouped together, we can't answer both questions at the same time! We need to separate the radio buttons for question 1 and question 2. We need to give  setRadioButton(answerElement1, 'q1Choices', answerList[0]); for question 1 radio buttons but setRadioButton(answerElement1, 'q2Choices', answerList[0]) radio buttons.
+
+Functions can take parameters, we're currently passing in one to this.setAnswers. Can you make it pass in two, the second can be the variable name which set radio button name too. Hint you will have to update the code calling setAnswers too.
+
+We're currently only passing in three choices per question, if we wanted to be flexible with how many choices we have per question. this.setAnswers doesn't allow for this flexibility. We can make it flexible by using a for loop.
+
 A for loop is loop that will run as long as it meets the conditions set. 
 
 for (i=0; i<4; i++) { 
