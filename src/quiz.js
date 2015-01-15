@@ -53,6 +53,7 @@ function Question() {
     
     this.checkAnswer = function () {
         var selectedAnswer = questionContainer.querySelector(':checked').value;
+        return selectedAnswer === correctAnswer;
         
     };
     //// end of helper functions
