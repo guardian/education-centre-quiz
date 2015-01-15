@@ -117,10 +117,10 @@ quiz.addEventListener('submit', function (evt) {
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
-var choicesQ1 = ['1791', '1821', '1999']
-q1.setAnswers(choicesQ1);
+var choices = ['1791', '1821', '1999']
+q1.setAnswers(choices);
 //second part (for grouping by radio button)
-q1.setAnswers(choicesQ1, "q1Choices");
+q1.setAnswers(choices, "q1Choices");
 //third part is to implement a for loop, highlighting that the benefit is that any number of choices
 //can be passed to setAnswers
 q1.setCorrectAnswer('1821');
@@ -128,9 +128,9 @@ q1.setCorrectAnswer('1821');
 var q2 = new Question();
 q2.setQuestion('When was the Guardian first online?');
 //second part add another question and see how radio buttons are grouped together
-var choicesQ2 = ['1995', '1990', '1999']
-q2.setAnswers(choicesQ2); //add another question - radio buttons are all grouped together
+var choices = ['1995', '1990', '1999']
+q2.setAnswers(choices); //add another question - radio buttons are all grouped together
 //So we must change setAnswers to take another parameter that will group the radio buttons by answer
-q2.setAnswers(choicesQ2, 'q2Choices');
+q2.setAnswers(choices, 'q2Choices');
 //third part is to allow any number of choices by creating a list and using a for loop
 q2.setCorrectAnswer('1995');
