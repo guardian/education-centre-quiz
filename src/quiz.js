@@ -13,7 +13,7 @@ function Question() {
     //first part will be to add the answers  
     this.setAnswers = function (answerList) {
         var answerElement1 = createAnswerContainer();
-        setText(answerElement, answerList[0]);
+        setText(answerElement1, answerList[0]);
         setRadioButton(answerElement1, 'q1Choices', answerList[0]);
 
         var answerElement2 = createAnswerContainer();
@@ -22,17 +22,17 @@ function Question() {
 
         var answerElement3 = createAnswerContainer();
         setText(answerElement3, answer1);
-        setRadioButton(answerElement3, 'q1Choices', answerList[1]);
+        setRadioButton(answerElement3, 'q1Choices', answerList[2]);
     };
 
     //second part to distinguish between radio buttons
     this.setAnswers = function (answerList, choiceName) {
         var answerElement1 = createAnswerContainer();
-        setText(answerElement, answerList[0]);
+        setText(answerElement1, answerList[0]);
         setRadioButton(answerElement1, choiceName, answerList[0]);
 
         var answerElement2 = createAnswerContainer();
-        setText(answerElement, answerList[1]);
+        setText(answerElement2, answerList[1]);
         setRadioButton(answerElement2, choiceName, answerList[1]);
 
         var answerElement3 = createAnswerContainer();
@@ -41,12 +41,12 @@ function Question() {
     };
 
     //third part to send a list and write a for loop
-    this.setAnswers = function (answers, choiceName) {
+    this.setAnswers = function (answersList, choiceName) {
 
-        for(i=0; i< answers.length; i++) {
+        for(i=0; i< answersList.length; i++) {
             var answerElement = createAnswerContainer();
-            setText(answerElement, answers[i]);
-            setRadioButton(answerElement, choiceName, answers[i]);
+            setText(answerElement, answersList[i]);
+            setRadioButton(answerElement, choiceName, answersList[i]);
 
         }
     };
