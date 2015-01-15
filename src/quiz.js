@@ -11,33 +11,33 @@ function Question() {
     };    
   
     //first part will be to add the answers  
-    this.setAnswers = function (answer1, answer2, answer3) {
+    this.setAnswers = function (answerList) {
         var answerElement1 = createAnswerContainer();
-        setText(answerElement, answer1);
-        setRadioButton(answerElement1, 'q1Choices', answer1);
+        setText(answerElement, answerList[0]);
+        setRadioButton(answerElement1, 'q1Choices', answerList[0]);
 
         var answerElement2 = createAnswerContainer();
-        setText(answerElement2, answer2);
-        setRadioButton(answerElement2, 'q1Choices', answer2);
+        setText(answerElement2, answerList[1]);
+        setRadioButton(answerElement2, 'q1Choices', answerList[1]);
 
         var answerElement3 = createAnswerContainer();
         setText(answerElement3, answer1);
-        setRadioButton(answerElement3, 'q1Choices', answer3);
+        setRadioButton(answerElement3, 'q1Choices', answerList[1]);
     };
 
     //second part to distinguish between radio buttons
-    this.setAnswers = function (answer1, answer2, answer3, choiceName) {
+    this.setAnswers = function (answerList, choiceName) {
         var answerElement1 = createAnswerContainer();
-        setText(answerElement, answer1);
-        setRadioButton(answerElement1, choiceName, answer1);
+        setText(answerElement, answerList[0]);
+        setRadioButton(answerElement1, choiceName, answerList[0]);
 
         var answerElement2 = createAnswerContainer();
-        setText(answerElement, answer2);
-        setRadioButton(answerElement2, choiceName, answer2);
+        setText(answerElement, answerList[1]);
+        setRadioButton(answerElement2, choiceName, answerList[1]);
 
         var answerElement3 = createAnswerContainer();
-        setText(answerElement3, answer1);
-        setRadioButton(answerElement3, choiceName, answer3);
+        setText(answerElement3, answerList[2]);
+        setRadioButton(answerElement3, choiceName, answerList[2]);
     };
 
     //third part to send a list and write a for loop
@@ -117,22 +117,20 @@ quiz.addEventListener('submit', function (evt) {
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
-q1.setAnswers('1791', '1821', '1999');
+var choicesQ1 = ['1791', '1821', '1999']
+q1.setAnswers(choicesQ1);
 //second part (for grouping by radio button)
-q1.setAnswers('1791', '1821', '1999', "q1Choices");
-//third part is to allow any number of choices by creating a list and using a for loop
-var choices = ['1791', '1821', '1999'];
-q1.setAnswers(choices, "q1Choices");
-
+q1.setAnswers(choicesQ1, "q1Choices");
+//third part is to implement a for loop, highlighting that the benefit is that any number of choices
+//can be passed to setAnswers
 q1.setCorrectAnswer('1821');
 
 var q2 = new Question();
 q2.setQuestion('When was the Guardian first online?');
-q2.setAnswers('1995', '1990', '1999'); //add another question - radio buttons are all grouped together
+//second part add another question and see how radio buttons are grouped together
+var choicesQ2 = ['1995', '1990', '1999']
+q2.setAnswers(choicesQ2); //add another question - radio buttons are all grouped together
 //So we must change setAnswers to take another parameter that will group the radio buttons by answer
-q2.setAnswers('1995', '1990', '1999', 'q2Choices');
+q2.setAnswers(choicesQ2, 'q2Choices');
 //third part is to allow any number of choices by creating a list and using a for loop
-var choices = ['1995', '1990', '1999'];
-q2.setAnswers(choices, "q2Choices");
-
 q2.setCorrectAnswer('1995');
