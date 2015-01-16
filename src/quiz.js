@@ -3,7 +3,6 @@ var questions = quiz.querySelector('#questions');
 var result = quiz.querySelector('#result');
 
 function Question() {
-    var correctAnswer;
  
     this.setQuestion = function (questionText) {
         var questionElement = getQuestionContainer();
@@ -47,15 +46,9 @@ function Question() {
         return element;
     }
 
-    this.setCorrectAnswer = function (answer) {
-        correctAnswer = answer;
-    };
-    
-    this.checkAnswer = function () {
-        var selectedAnswer = questionContainer.querySelector(':checked').value;
-        return selectedAnswer === correctAnswer;
-        
-    };
+    this.getSelectedAnswer = function () {
+        return questionContainer.querySelector(':checked').value;
+    }
     //// end of helper functions
 }
 
@@ -72,5 +65,4 @@ var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
 var choices = ['1791', '1821', '1999']
 q1.setAnswers(choices);
-q1.setCorrectAnswer('1821');
 
