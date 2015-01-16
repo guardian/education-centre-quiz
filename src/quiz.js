@@ -85,15 +85,10 @@ function Question() {
         return element;
     }
 
-    this.setCorrectAnswer = function (answer) {
-        correctAnswer = answer;
-    };
-    
-    this.checkAnswer = function () {
-        var selectedAnswer = questionContainer.querySelector(':checked').value;
-        //student should write this?
-        return selectedAnswer === correctAnswer;
-    };
+
+    this.getSelectedAnswer = function () {
+        return questionContainer.querySelector(':checked').value;
+    }
     //// end of helper functions
 }
 
@@ -103,10 +98,10 @@ quiz.addEventListener('submit', function (evt) {
 
     //last check number of answers correct
     var counter = 0;
-    if(q1.checkAnswer()) {
+    if(q1.getSelectedAnswer() === '1821') {
         counter++;
     }
-    if(q2.checkAnswer()) {
+    if(q2.checkAnswer() === '1999') {
         counter++;
     }
     alert(counter);
@@ -123,7 +118,7 @@ q1.setAnswers(choices);
 q1.setAnswers(choices, "q1Choices");
 //third part is to implement a for loop, highlighting that the benefit is that any number of choices
 //can be passed to setAnswers
-q1.setCorrectAnswer('1821');
+//4th part is the if statement
 
 var q2 = new Question();
 q2.setQuestion('When was the Guardian first online?');
@@ -133,4 +128,4 @@ q2.setAnswers(choices); //add another question - radio buttons are all grouped t
 //So we must change setAnswers to take another parameter that will group the radio buttons by answer
 q2.setAnswers(choices, 'q2Choices');
 //third part is to allow any number of choices by creating a list and using a for loop
-q2.setCorrectAnswer('1995');
+//4th part is the if statement
