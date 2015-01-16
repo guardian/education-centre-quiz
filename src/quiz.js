@@ -101,7 +101,7 @@ quiz.addEventListener('submit', function (evt) {
     if(q1.getSelectedAnswer() === '1821') {
         counter++;
     }
-    if(q2.checkAnswer() === '1999') {
+    if(q2.getSelectedAnswer() === '1999') {
         counter++;
     }
     alert(counter);
