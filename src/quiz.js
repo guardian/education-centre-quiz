@@ -3,20 +3,8 @@ var questions = quiz.querySelector('#questions');
 var result = quiz.querySelector('#result');
 
 function Question() {
- 
-    this.setQuestion = function (questionText) {
-        var questionElement = getQuestionContainer();
-        setText(questionElement, questionText);
-    };    
-  
-    this.setAnswers = function (answerList) {
-       var answerElement1 = createAnswerContainer();
-        setText(answerElement1, answerList[0]);
-        setRadioButton(answerElement1, 'q1Choices', answerList[0]);
-    };
 
-
-    ////////////This code is helper functions
+     //The code below contains helper functions -- you don't need to edit this code
     var questionContainer = copyTemplate('#question-template', questions);
     var answersContainer = questionContainer.querySelector('.answers');
 
@@ -49,13 +37,29 @@ function Question() {
     this.getSelectedAnswer = function () {
         return questionContainer.querySelector(':checked').value;
     }
-    //// end of helper functions
+    // end of helper functions
+ 
+    //from here below is where you need your code
+
+    this.setQuestion = function (questionText) {
+        var questionElement = getQuestionContainer();
+        setText(questionElement, questionText);
+    };    
+  
+    this.setAnswers = function (answerList) {
+       var answerElement1 = createAnswerContainer();
+        setText(answerElement1, answerList[0]);
+        setRadioButton(answerElement1, 'q1Choices', answerList[0]);
+    };
+   
 }
 
 quiz.addEventListener('submit', function (evt) {
     evt.preventDefault();
     var result = quiz.querySelector('#result');
     
+    //write your code for checking answers here
+
     result.innerHTML = "You got 2 out of 2 correct";
 });
 
