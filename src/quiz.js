@@ -31,7 +31,7 @@ function Question() {
         radioButtonElement.setAttribute('value', value);
     }
 
-    function setImage(element, source) {
+    function setImageSource(element, source) {
         var imageElement = element.querySelector('.image');
         imageElement.setAttribute('src', source)
     }
@@ -64,7 +64,7 @@ function Question() {
 
     this.setImage = function (source) {
        var answerElement1 = createImageContainer();
-        setImage(answerElement1, source);
+        setImageSource(answerElement1, source);
     };
    
 }
