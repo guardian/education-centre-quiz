@@ -47,7 +47,7 @@ function Question() {
     this.getSelectedAnswer = function () {
         return questionContainer.querySelector(':checked').value;
     }
-    // end of helper functions
+    // end of helper functions 
  
     //from here below is where you need your code
 
@@ -84,5 +84,4 @@ var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
 var choices = ['1791', '1821', '1999']
 q1.setAnswers(choices);
-q1.setImage("https://media.guim.co.uk/f8f71e61c77b03ba9f5c674ba5449f3f1d1d4b51/21_226_3362_2016/140.jpg");
 
