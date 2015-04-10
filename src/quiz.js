@@ -59,7 +59,7 @@ function Question() {
     this.setAnswers = function (answerList) {
        var answerElement1 = createAnswerContainer();
         setText(answerElement1, answerList[0]);
-        setRadioButton(answerElement1, 'q1Choices', answerList[0]);
+        setRadioButton(answerElement1, 'groupName', answerList[0]);
     };
 
     this.setImage = function (source) {
