@@ -47,14 +47,21 @@ function Question() {
     this.getSelectedAnswer = function () {
         return questionContainer.querySelector(':checked').value;
     }
+ 
+    this.setQuestion = function (questionText) {
+        var questionElement = getQuestionContainer();
+        setText(questionElement, questionText);
+    };  
+    
+      this.setImage = function (source) {
+       var answerElement1 = createImageContainer();
+        setImageSource(answerElement1, source);
+    };
+   
     // end of helper functions 
  
     //from here below is where you need your code
 
-    this.setQuestion = function (questionText) {
-        var questionElement = getQuestionContainer();
-        setText(questionElement, questionText);
-    };    
   
     this.setAnswers = function (answerList) {
        var answerElement1 = createAnswerContainer();
@@ -62,11 +69,7 @@ function Question() {
         setRadioButton(answerElement1, 'groupName', answerList[0]);
     };
 
-    this.setImage = function (source) {
-       var answerElement1 = createImageContainer();
-        setImageSource(answerElement1, source);
-    };
-   
+  
 }
 
 quiz.addEventListener('submit', function (evt) {
