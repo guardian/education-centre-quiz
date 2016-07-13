@@ -55,16 +55,16 @@ h2 {
     color: green;
 }
 
-.answer-template > input { /* HIDE RADIO */
+.custom-radio-button > input { /* HIDE RADIO */
   visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
 }
 
-.answer-template > input + img{ /* IMAGE STYLES */
+.custom-radio-button > input + img{ /* IMAGE STYLES */
   cursor:pointer;
   border:2px solid transparent;
 }
 
-.answer-template > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:200px solid red;
+.custom-radio-button > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid red;
 }
