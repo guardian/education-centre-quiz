@@ -1,6 +1,7 @@
 body {
     font-family: Helvetica;
     margin-left: 1em;
+    background-color: aqua
 }
 label {
     padding-left: 1em;
@@ -48,4 +49,22 @@ h2 {
     float: right;
     width: 100px;
     border-radius: 100px;
+}
+
+.goGreen {
+    color: green;
+}
+
+.answer-template > input { /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+
+.answer-template > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+.answer-template > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:200px solid red;
 }
