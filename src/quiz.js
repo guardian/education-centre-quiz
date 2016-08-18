@@ -75,7 +75,7 @@ function Question() {
     //from here below is where you need your code
 
   
-    this.setAnswers = function (answerList) {
+    this.setAnswerList = function (answerList) {
         var answerElement1 = createAnswerContainer();
         setText(answerElement1, answerList[0]);
         setRadioButton(answerElement1, 'groupName', answerList[0]);
@@ -95,6 +95,6 @@ quiz.addEventListener('submit', function (evt) {
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
-var choices = ['1791', '1821', '1999']
-q1.setAnswers(choices);
+var answerList = ['1791', '1821', '1999']
+q1.setAnswerList(answerList);
 q1.setCorrectAnswer('1821');
