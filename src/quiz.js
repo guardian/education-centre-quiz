@@ -57,19 +57,29 @@ function Question() {
        var answerElement1 = createImageContainer();
         setImageSource(answerElement1, source);
     };
-   
+
+    this.setCorrectAnswer = function(correctIndex) {
+        questionContainer.querySelector('.hiddenAnswer').value = correctIndex;
+    }
+
+    this.getCorrectAnswer = function() {
+        return questionContainer.querySelector('.hiddenAnswer').value;
+    }
+
+    this.makeGreen = function() {
+        questionContainer.className += " goGreen";
+    }
+    
     // end of helper functions 
  
     //from here below is where you need your code
 
   
     this.setAnswers = function (answerList) {
-       var answerElement1 = createAnswerContainer();
+        var answerElement1 = createAnswerContainer();
         setText(answerElement1, answerList[0]);
         setRadioButton(answerElement1, 'groupName', answerList[0]);
     };
-
-  
 }
 
 quiz.addEventListener('submit', function (evt) {
@@ -87,4 +97,4 @@ var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
 var choices = ['1791', '1821', '1999']
 q1.setAnswers(choices);
-
+q1.setCorrectAnswer('1821');

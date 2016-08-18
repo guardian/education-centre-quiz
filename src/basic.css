@@ -49,3 +49,21 @@ h2 {
     width: 100px;
     border-radius: 100px;
 }
+
+.goGreen {
+    color: green;
+}
+
+.custom-radio-button > input { /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+
+.custom-radio-button > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+.custom-radio-button > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid red;
+}

@@ -22,11 +22,15 @@
             <div id="question-template">
                 <h2 class="question"><span class="text"></span></h2>
                 <div class="answers"></div>
-                <div class="imageForQuestion"></div>
+                <input type="hidden" class="hiddenAnswer" ></input>
 
+                <div class="imageForQuestion"></div>
             </div>
-            <label id="answer-template">
-                <input type="radio" class="choice"> <span class="text"></span>
+
+            <label id="answer-template" class="custom-radio-button">
+                <input type="radio" class="choice"> 
+                <img class="choiceImage" src="" width="25" height="25">
+                <span class="text"></span>
             </label>
             <div id="image-template">
                 <img src="todo" class="image" height="100px">
