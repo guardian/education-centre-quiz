@@ -58,29 +58,6 @@ function Question() {
         setImageSource(answerElement1, source);
     };
 
-    this.setRadioImage = function(source) {
-        answersContainer
-    }
-   
-    // end of helper functions 
- 
-    //from here below is where you need your code
-
-  
-    this.setAnswers = function (answerList) {
-       var answerElement1 = createAnswerContainer();
-        setText(answerElement1, answerList[0]);
-        setRadioButton(answerElement1, 'groupName', answerList[0]);
-        
-         var answerElement1 = createAnswerContainer();
-        setText(answerElement1, answerList[1]);
-        setRadioButton(answerElement1, 'groupName', answerList[1]);
-        
-         var answerElement1 = createAnswerContainer();
-        setText(answerElement1, answerList[2]);
-        setRadioButton(answerElement1, 'groupName', answerList[2]);
-    };
-
     this.setCorrectAnswer = function(correctIndex) {
         questionContainer.querySelector('.hiddenAnswer').value = correctIndex;
     }
@@ -92,25 +69,24 @@ function Question() {
     this.makeGreen = function() {
         questionContainer.className += " goGreen";
     }
+    
+    // end of helper functions 
+ 
+    //from here below is where you need your code
 
   
+    this.setAnswers = function (answerList) {
+        var answerElement1 = createAnswerContainer();
+        setText(answerElement1, answerList[0]);
+        setRadioButton(answerElement1, 'groupName', answerList[0]);
+    };
 }
 
 quiz.addEventListener('submit', function (evt) {
     evt.preventDefault();
     var result = quiz.querySelector('#result');
-    var counter = 0;
+    
     //write your code for checking answers here
-    if(q1.getSelectedAnswer() === q1.getCorrectAnswer()) {
-        counter++;
-        q1.makeGreen();
-    } else q1.makeRed();
-
-
-    if(counter < X) {
-        //Failed
-    } else //WIN
-
 
     result.innerHTML = "You got 2 out of 2 correct";
 });
