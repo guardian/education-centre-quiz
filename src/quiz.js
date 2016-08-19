@@ -47,7 +47,7 @@ class Question {
     }
 
     getSelectedAnswer() {
-        return questionContainer.querySelector(':checked').value;
+        return this.questionContainer.querySelector(':checked').value;
     }
 
     setQuestion(questionText) {
@@ -65,7 +65,11 @@ class Question {
     }
 
     getCorrectAnswer() {
-        return questionContainer.querySelector('.hiddenAnswer').value;
+        return this.questionContainer.querySelector('.hiddenAnswer').value;
+    }
+
+    makeRed() {
+      this.questionContainer.className += " goRed";
     }
 
     // end of helper functions
@@ -82,10 +86,12 @@ class Question {
     //---------------------------------------------
     //This is the code to change to display all the answer options
 
-    setAnswerList(answerList) {
-        var answerElement1 = this.createAnswerContainer();
-        this.setText(answerElement1, answerList[0]);
-        this.setRadioButton(answerElement1, 'groupName', answerList[0]);
+    setAnswerList(answerList, radioButton) {
+      for(var i=0; i < answerList.length; i++) {
+        var answerElement = this.createAnswerContainer();
+        this.setText(answerElement, answerList[i]);
+        this.setRadioButton(answerElement, radioButton, answerList[i]);
+      }
     };
 }
 
@@ -97,8 +103,48 @@ quiz.addEventListener('submit', function (evt) {
     var result = quiz.querySelector('#result');
 
     //write your code for checking answers here
+    var counter = 0;
+    if(q1.getSelectedAnswer() === q1.getCorrectAnswer()) {
+      counter++;
+      q1.makeGreen();
+    } else {
+      q1.makeRed();
+    }
+    if(q2.getSelectedAnswer() === q2.getCorrectAnswer()) {
+      counter++;
+      q2.makeGreen();
+    } else {
+      q2.makeRed();
+    }
+    if(q3.getSelectedAnswer() === q3.getCorrectAnswer()) {
+      counter++;
+      q3.makeGreen();
+    } else {
+      q3.makeRed();
+    }
+    if(q4.getSelectedAnswer() === q4.getCorrectAnswer()) {
+      counter++;
+      q4.makeGreen();
+    } else {
+      q4.makeRed();
+    }
+    if(q5.getSelectedAnswer() === q5.getCorrectAnswer()) {
+      counter++;
+      q5.makeGreen();
+    } else {
+      q5.makeRed();
+    }
 
-    result.innerHTML = "You got 2 out of 2 correct";
+    var message = '';
+    if(counter <= 2){
+      message = 'You got ' + counter + ' correct';
+    } else if (counter === 5) {
+      message = 'Well done, all correct!';
+    } else {
+      message = 'Good attempt, you got ' + counter + '. Better luck next time!';
+    }
+
+    result.innerHTML = message;
 });
 
 
@@ -108,5 +154,33 @@ quiz.addEventListener('submit', function (evt) {
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
 var answerList = ['1791', '1821', '1999']
-q1.setAnswerList(answerList);
+q1.setAnswerList(answerList, 'q1');
 q1.setCorrectAnswer('1821');
+
+var q2 = new Question();
+q2.setQuestion('What is the capital of the UK?');
+var answerList = ['London', 'Paris', 'Dublin', 'Berlin']
+q2.setAnswerList(answerList, 'q2');
+q2.setCorrectAnswer('London');
+q2.setImage('https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png');
+
+var q3 = new Question();
+q3.setQuestion('What is the capital of the Afghanistan?');
+var answerList = ['London', 'Kabul', 'Valletta', 'Amsterdam']
+q3.setAnswerList(answerList, 'q3');
+q3.setCorrectAnswer('Kabul');
+q3.setImage('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/2000px-Flag_of_Afghanistan.svg.png');
+
+var q4 = new Question();
+q4.setQuestion('What is the capital of the Canada?');
+var answerList = ['Rabat', 'Lisbon', 'San Jose', 'Ottawa']
+q4.setAnswerList(answerList, 'q4');
+q4.setCorrectAnswer('Ottawa');
+q4.setImage('https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Flag_of_Canada.svg/1280px-Flag_of_Canada.svg.png');
+
+var q5 = new Question();
+q5.setQuestion('What is the capital of Denmark?');
+var answerList = ['Copenhagen', 'Athens', 'New Delhi', 'Washington, D.C.']
+q5.setAnswerList(answerList, 'q5');
+q5.setCorrectAnswer('Copenhagen');
+q5.setImage('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/2000px-Flag_of_Denmark.svg.png');

@@ -1,6 +1,8 @@
 body {
     font-family: Helvetica;
     margin-left: 1em;
+    color: #005689;
+    background-color: #dcdcdc
 }
 label {
     padding-left: 1em;
@@ -19,6 +21,10 @@ button {
     color: white;
     padding: 5px 10px;
     border-width: 0;
+}
+
+h1 {
+  text-align: center;
 }
 
 h2 {
@@ -40,7 +46,7 @@ h2 {
     content: counter(list);
     counter-increment: list;
     font-size: 80px;
-    color: #dcdcdc;
+    color: #333333;
 }
 
 .guardian {
@@ -51,6 +57,10 @@ h2 {
 
 .goGreen {
     color: green;
+}
+
+.goRed {
+  color: red;
 }
 
 .custom-radio-button > input { /* HIDE RADIO */
