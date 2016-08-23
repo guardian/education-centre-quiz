@@ -39,7 +39,6 @@ h2 {
     padding-right: 10px;
     content: counter(list);
     counter-increment: list;
-    float: left;
     font-size: 80px;
     color: #dcdcdc;
 }
@@ -66,4 +65,13 @@ h2 {
 
 .custom-radio-button > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
   border:2px solid red;
+}
+
+
+#result{
+    margin-top: 12px;
+    padding: 5px 10px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
 }
