@@ -47,12 +47,12 @@ function Question() {
     this.getSelectedAnswer = function () {
         return questionContainer.querySelector(':checked').value;
     }
- 
+
     this.setQuestion = function (questionText) {
         var questionElement = getQuestionContainer();
         setText(questionElement, questionText);
-    };  
-    
+    };
+
       this.setImage = function (source) {
        var answerElement1 = createImageContainer();
         setImageSource(answerElement1, source);
@@ -66,15 +66,20 @@ function Question() {
         return questionContainer.querySelector('.hiddenAnswer').value;
     }
 
+    // end of helper functions
+
+    //from here below is where you need your code
+
+    //---------------------------------------------
+    //This is to make the answers go green
+
     this.makeGreen = function() {
         questionContainer.className += " goGreen";
     }
-    
-    // end of helper functions 
- 
-    //from here below is where you need your code
 
-  
+    //---------------------------------------------
+    //This is the code to change to display all the answer options
+
     this.setAnswerList = function (answerList) {
         var answerElement1 = createAnswerContainer();
         setText(answerElement1, answerList[0]);
@@ -82,16 +87,21 @@ function Question() {
     };
 }
 
+//---------------------------------------------
+//This is the code to change to check the answers to the quiz
+
 quiz.addEventListener('submit', function (evt) {
     evt.preventDefault();
     var result = quiz.querySelector('#result');
-    
+
     //write your code for checking answers here
 
     result.innerHTML = "You got 2 out of 2 correct";
 });
 
 
+//---------------------------------------------
+//This is where you write your questions
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
