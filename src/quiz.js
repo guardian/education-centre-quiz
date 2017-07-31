@@ -1,13 +1,13 @@
-var quiz = document.querySelector('#quiz');
-var questions = quiz.querySelector('#questions');
-var result = quiz.querySelector('#result');
+const quiz = document.querySelector('#quiz');
+const questions = quiz.querySelector('#questions');
+const result = quiz.querySelector('#result');
 
 function Question() {
 
      //The code below contains helper functions -- you don't need to edit this code
-    var questionContainer = copyTemplate('#question-template', questions);
-    var answersContainer = questionContainer.querySelector('.answers');
-    var imageContainer = questionContainer.querySelector('.imageForQuestion')
+    const questionContainer = copyTemplate('#question-template', questions);
+    const answersContainer = questionContainer.querySelector('.answers');
+    const imageContainer = questionContainer.querySelector('.imageForQuestion');
 
     function  getQuestionContainer() {
         return questionContainer.querySelector('.question');
@@ -26,19 +26,19 @@ function Question() {
     }
 
     function setRadioButton(element, name, value) {
-        var radioButtonElement = element.querySelector('.choice');
+        const radioButtonElement = element.querySelector('.choice');
         radioButtonElement.setAttribute('name', name);
         radioButtonElement.setAttribute('value', value);
     }
 
     function setImageSource(element, source) {
-        var imageElement = element.querySelector('.image');
+        const imageElement = element.querySelector('.image');
         imageElement.setAttribute('src', source)
     }
 
 
     function copyTemplate(id, to) {
-        var element = document.querySelector(id).cloneNode(true);
+        const element = document.querySelector(id).cloneNode(true);
         element.id = '';
         to.appendChild(element);
         return element;
@@ -46,25 +46,25 @@ function Question() {
 
     this.getSelectedAnswer = function () {
         return questionContainer.querySelector(':checked').value;
-    }
+    };
 
     this.setQuestion = function (questionText) {
-        var questionElement = getQuestionContainer();
+        const questionElement = getQuestionContainer();
         setText(questionElement, questionText);
     };
 
       this.setImage = function (source) {
-       var answerElement1 = createImageContainer();
+       const answerElement1 = createImageContainer();
         setImageSource(answerElement1, source);
     };
 
     this.setCorrectAnswer = function(correctIndex) {
         questionContainer.querySelector('.hiddenAnswer').value = correctIndex;
-    }
+    };
 
     this.getCorrectAnswer = function() {
         return questionContainer.querySelector('.hiddenAnswer').value;
-    }
+    };
 
     // end of helper functions
 
@@ -75,13 +75,13 @@ function Question() {
 
     this.makeGreen = function() {
         questionContainer.className += " goGreen";
-    }
+    };
 
     //---------------------------------------------
     //This is the code to change to display all the answer options
 
     this.setAnswerList = function (answerList) {
-        var answerElement1 = createAnswerContainer();
+        const answerElement1 = createAnswerContainer();
         setText(answerElement1, answerList[0]);
         setRadioButton(answerElement1, 'groupName', answerList[0]);
     };
@@ -92,7 +92,7 @@ function Question() {
 
 quiz.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    var result = quiz.querySelector('#result');
+    const result = quiz.querySelector('#result');
 
     //write your code for checking answers here
 
@@ -103,8 +103,8 @@ quiz.addEventListener('submit', function (evt) {
 //---------------------------------------------
 //This is where you write your questions
 
-var q1 = new Question();
+const q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
-var answerList = ['1791', '1821', '1999']
+const answerList = ['1791', '1821', '1999'];
 q1.setAnswerList(answerList);
 q1.setCorrectAnswer('1821');
