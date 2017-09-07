@@ -2,67 +2,69 @@ var quiz = document.querySelector('#quiz');
 var questions = quiz.querySelector('#questions');
 var result = quiz.querySelector('#result');
 
-function Question() {
+class Question {
 
-     //The code below contains helper functions -- you don't need to edit this code
-    var questionContainer = copyTemplate('#question-template', questions);
-    var answersContainer = questionContainer.querySelector('.answers');
-    var imageContainer = questionContainer.querySelector('.imageForQuestion')
-
-    function  getQuestionContainer() {
-        return questionContainer.querySelector('.question');
+    //The code below contains helper functions -- you don't need to edit this code
+    constructor() {
+        this.questionContainer = this.copyTemplate('#question-template', questions);
+        this.answersContainer = this.questionContainer.querySelector('.answers');
+        this.imageContainer = this.questionContainer.querySelector('.imageForQuestion')
     }
 
-    function createAnswerContainer() {
-        return copyTemplate('#answer-template', answersContainer);
+    getQuestionContainer () {
+        return this.questionContainer.querySelector('.question');
     }
 
-    function createImageContainer() {
-        return copyTemplate('#image-template', imageContainer);
+    createAnswerContainer() {
+        return this.copyTemplate('#answer-template', this.answersContainer);
     }
 
-    function setText(element, textToSet) {
+    createImageContainer() {
+        return this.copyTemplate('#image-template', this.imageContainer);
+    }
+
+    setText(element, textToSet) {
         element.querySelector('.text').textContent = textToSet;
     }
 
-    function setRadioButton(element, name, value) {
+    setRadioButton(element, name, value) {
         var radioButtonElement = element.querySelector('.choice');
         radioButtonElement.setAttribute('name', name);
         radioButtonElement.setAttribute('value', value);
     }
 
-    function setImageSource(element, source) {
+    setImageSource(element, source) {
         var imageElement = element.querySelector('.image');
         imageElement.setAttribute('src', source)
     }
 
 
-    function copyTemplate(id, to) {
+    copyTemplate(id, to) {
         var element = document.querySelector(id).cloneNode(true);
         element.id = '';
         to.appendChild(element);
         return element;
     }
 
-    this.getSelectedAnswer = function () {
+    getSelectedAnswer() {
         return questionContainer.querySelector(':checked').value;
     }
 
-    this.setQuestion = function (questionText) {
-        var questionElement = getQuestionContainer();
-        setText(questionElement, questionText);
-    };
-
-      this.setImage = function (source) {
-       var answerElement1 = createImageContainer();
-        setImageSource(answerElement1, source);
-    };
-
-    this.setCorrectAnswer = function(correctIndex) {
-        questionContainer.querySelector('.hiddenAnswer').value = correctIndex;
+    setQuestion(questionText) {
+        var questionElement = this.getQuestionContainer();
+        this.setText(questionElement, questionText);
     }
 
-    this.getCorrectAnswer = function() {
+    setImage(source) {
+       var answerElement1 = this.createImageContainer();
+       this.setImageSource(answerElement1, source);
+    }
+
+    setCorrectAnswer(correctIndex) {
+        this.questionContainer.querySelector('.hiddenAnswer').value = correctIndex;
+    }
+
+    getCorrectAnswer() {
         return questionContainer.querySelector('.hiddenAnswer').value;
     }
 
@@ -73,17 +75,17 @@ function Question() {
     //---------------------------------------------
     //This is to make the answers go green
 
-    this.makeGreen = function() {
-        questionContainer.className += " goGreen";
+    makeGreen() {
+        this.questionContainer.className += " goGreen";
     }
 
     //---------------------------------------------
     //This is the code to change to display all the answer options
 
-    this.setAnswerList = function (answerList) {
-        var answerElement1 = createAnswerContainer();
-        setText(answerElement1, answerList[0]);
-        setRadioButton(answerElement1, 'groupName', answerList[0]);
+    setAnswerList(answerList) {
+        var answerElement1 = this.createAnswerContainer();
+        this.setText(answerElement1, answerList[0]);
+        this.setRadioButton(answerElement1, 'groupName', answerList[0]);
     };
 }
 
