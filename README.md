@@ -16,4 +16,4 @@ You can edit any of the three files in a text browser but a couple of tools to m
 The Education Centre will be using [Brackets](http://brackets.io/) to edit files, alternatively we recommend [Sublime Text](http://www.sublimetext.com/).
 
 Template for getting started is currently on master.
-An implementation of the code (in steps) can be found on this [branch](https://github.com/guardian/education-centre-quiz/compare/complete)
+An implementation of the code can be found on this [branch](https://github.com/guardian/education-centre-quiz/compare/finished-quiz-with-extras)
