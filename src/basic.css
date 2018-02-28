@@ -13,9 +13,9 @@ label {
 }
 
 button {
-    border-color: #005689;
+    border-color: #000000;
     border-radius: 100px;
-    background-color: #005689;
+    background-color: #000000;
     color: white;
     padding: 5px 10px;
     border-width: 0;
@@ -45,8 +45,7 @@ h2 {
 
 .guardian {
     float: right;
-    width: 100px;
-    border-radius: 100px;
+    width: 300px;
 }
 
 .goGreen {
