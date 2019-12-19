@@ -47,7 +47,7 @@ class Question {
     }
 
     getSelectedAnswer() {
-        return questionContainer.querySelector(':checked').value;
+        return this.questionContainer.querySelector(':checked').value;
     }
 
     setQuestion(questionText) {
@@ -65,7 +65,7 @@ class Question {
     }
 
     getCorrectAnswer() {
-        return questionContainer.querySelector('.hiddenAnswer').value;
+        return this.questionContainer.querySelector('.hiddenAnswer').value;
     }
 
     // end of helper functions
@@ -107,6 +107,6 @@ quiz.addEventListener('submit', function (evt) {
 
 var q1 = new Question();
 q1.setQuestion('When was the Guardian first published?');
-var answerList = ['1791', '1821', '1999']
-q1.setAnswerList(answerList);
+var answerList = ['1791', '1821', '1999'];
 q1.setCorrectAnswer('1821');
+q1.setAnswerList(answerList);
